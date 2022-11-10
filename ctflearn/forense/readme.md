@@ -201,6 +201,3 @@ binwalk -e /caminho/arquivo.jpg
 3. Resolvi utilizar a ferramentas <code>hexed</code> <https://hexed.it/> </br>
 E encontrei a flag, só foi preciso remover os . (pontos)
 
- Gandalf TheWise
-30 pontos Fácil
-
