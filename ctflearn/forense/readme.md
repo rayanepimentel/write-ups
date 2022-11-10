@@ -160,7 +160,7 @@ cat ThePassword.txt
 ### O que eu fiz
 
 - Primeiro eu analisei o metadados da imagem. Usei a ferramenta <code>exif.tools</code> e encontrei um  **Comment**, com um hash. Peguei esse hash e decodifiquei na base64. Retornou uma senha <code> Password: Linux12345</code>
-- Com isso eu pensei em usar o binwalk, para ver se tinha um **arquivo dentro de outro arquivo**.
+- Com isso eu pensei em usar o <code>binwalk</code>, para ver se tinha um **arquivo dentro de outro arquivo**.
 
 ```bash
 binwalk caminho/nomeDoArquivo.extensao
@@ -189,3 +189,14 @@ binwalk -e /caminho/arquivo.jpg
 - Cliquei nele para abrir e me pediu a senha, coloquei a senha que eu tinha decodificado lá no inicio.
 
 - E lá estava a flag.
+
+## :triangular_flag_on_post: Pho Is Tasty
+
+**Descrição**: The flag is hidden in the jpeg file. Good Luck! Have some Pho! Solve this challenge before solving my Scope challenge for 100 points.
+
+### O que eu fiz
+
+1. Anlisei o metadados pela ferramenta <code>exif.tools</code>, mas não encontrei nada suspeito.
+2. Depois analisei pela ferramenta <code>binwalk</code>, mas sem sucesso.
+3. Resolvi utilizar a ferramentas <code>hexed</code> <https://hexed.it/> </br>
+E encontrei a flag, só foi preciso remover os . (pontos)
