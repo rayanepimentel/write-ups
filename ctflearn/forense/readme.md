@@ -152,3 +152,40 @@ cat ThePassword.txt
 
 - Foi retornado uma senha, usei para abrir o arquivo PDF que estava protegido.
 - E a flag estava nesse arquivo.
+
+## :triangular_flag_on_post: Tux
+
+**Descrição**: The flag is hidden inside the Penguin! Solve this challenge before solving my 100 point Scope challenge which uses similar techniques as this one. </br>
+
+### O que eu fiz
+
+- Primeiro eu analisei o metadados da imagem. Usei a ferramenta <code>exif.tools</code> e encontrei um  **Comment**, com um hash. Peguei esse hash e decodifiquei na base64. Retornou uma senha <code> Password: Linux12345</code>
+- Com isso eu pensei em usar o binwalk, para ver se tinha um **arquivo dentro de outro arquivo**.
+
+```bash
+binwalk caminho/nomeDoArquivo.extensao
+# binwalk PurpleThing.jpeg
+```
+
+Retornou:
+
+```bash
+
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+0             0x0             JPEG image data, JFIF standard 1.01
+5488          0x1570          Zip archive data, encrypted at least v1.0 to extract, compressed size: 39, uncompressed size: 27, name: flag
+5679          0x162F          End of Zip archive, footer length: 22
+```
+
+Vi que tinha um arquivo zip e extrai.
+
+```bash
+binwalk -e /caminho/arquivo.jpg
+```
+
+- Depois entrei na pasta criada e vi que tinha um arquivo .zip
+
+- Cliquei nele para abrir e me pediu a senha, coloquei a senha que eu tinha decodificado lá no inicio.
+
+- E lá estava a flag.
