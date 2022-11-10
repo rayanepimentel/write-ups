@@ -59,7 +59,7 @@ If only the password were in the image?
 Esse eu fui direto na ferramenta **exif.tools** e encontrei a flag. </br>
 Outra ferramenta que eu poderia ter usado: **aperisolve**
 
-## Binwalk
+## :triangular_flag_on_post: Binwalk
 
 **Descrição**: Here is a file with another file hidden inside it. Can you extract it? <https://mega.nz/#!qbpUTYiK!-deNdQJxsQS8bTSMxeUOtpEclCI-zpK7tbJiKV0tXYY>
 </br>
@@ -130,3 +130,25 @@ NOTICE.md   dist
 ```
 
 4. E lá estava o arquivo com a flag.
+
+## :triangular_flag_on_post: Taking LS
+
+**Descrição**: Just take the Ls. Check out this zip file and I be the flag will remain hidden. <https://mega.nz/#!mCgBjZgB!_FtmAm8s_mpsHr7KWv8GYUzhbThNn0I8cHMBi4fJQp8>
+</br>
+
+### O que eu fiz
+
+- Fiz o download do arquivo e tentei abrir o arquivo PDF, mas precisava de uma senha.
+- Entrei na pasta <code>ls -a</code> e vi um diretório <code>.ThePassword</code>. Pelo nome eu achei que poderia ter algo lá, entrei e vi o arquivo .txt
+
+```bash
+#pasta 
+ls -a
+# veio arquivos e diretórios
+cd .ThePassword
+ls -a
+cat ThePassword.txt
+```
+
+- Foi retornado uma senha, usei para abrir o arquivo PDF que estava protegido.
+- E a flag estava nesse arquivo.
