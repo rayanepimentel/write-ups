@@ -196,7 +196,7 @@ binwalk -e /caminho/arquivo.jpg
 
 ### O que eu fiz
 
-1. Anlisei o metadados pela ferramenta <code>exif.tools</code> e string pela ferramenta <https://www.fileformat.info/tool/strings.html> mas não encontrei nada suspeito.
+1. Anlisei o metadados pela ferramenta <code>exif.tools</code> e string pela ferramenta <https://www.fileformat.info/tool/strings.htm> mas não encontrei nada suspeito.
 2. Depois analisei pela ferramenta <code>binwalk</code>, mas sem sucesso.
 3. Resolvi utilizar a ferramentas <code>hexed</code> <https://hexed.it/> </br>
 E encontrei a flag, só foi preciso remover os . (pontos)
