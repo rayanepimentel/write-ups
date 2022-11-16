@@ -8,7 +8,7 @@ CTF (Capture The Flag) realizado entre os dias 12 e 15 de Novembro, no servidor 
 
 ![](/meninaCyberSec/pics/web2.png)
 
-## Desafio: Não odeio o JavaScript! :triangular_flag_on_post
+## Desafio: Não odeio o JavaScript! :triangular_flag_on_post:
 
 <code>formato da flag **MCS{xxxx_xxxx_xxxx_xxx}**</code>
 
@@ -47,7 +47,7 @@ Acessei url/admin/admin.js e nesse arquivo estava a flag
 
 > "MCS{3num3r4t10n_F0rfun_4nd_Pr0f1t}"
 
-## Desafio: Nosferatu :triangular_flag_on_post
+## Desafio: Nosferatu :triangular_flag_on_post:
 
 <code>Formato da flag: MCS{xxxx_xxxx_xxxx_xxxx_xxxx}</code>
 
