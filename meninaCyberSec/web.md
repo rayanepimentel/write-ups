@@ -36,7 +36,7 @@ Tentei acessa a URL com o <strong>/admin</strong> e retornou:
 
 Status code **403** de não permitido. Diretório existe, mas eu não tenho permissão. </br>
 
-Utilizando a ferramenta <strong>dirbuster</strong> técnica de bruteforce para encontrar objetos, arquivos e diretórios do site e me retornou algums diretórios com status code <strong>200</strong>, ou seja diretórios que não precisam de autorização para acessar.</br>
+Utilizando a ferramenta <strong>dirbuster</strong> técnica de bruteforce para encontrar objetos, arquivos e diretórios do site, me retornou algums diretórios com status code <strong>200</strong>, ou seja diretórios que não precisam de autorização para acessar.</br>
 
 ```bash
 200 /admin/admin.js
@@ -53,7 +53,7 @@ Acessei **url/admin/admin.js** e nesse arquivo estava a flag:
 
 <code>Formato da flag: MCS{xxxx_xxxx_xxxx_xxxx_xxxx}</code>
 
-Esse era a continuação da análise do site.</br>
+Continuação da análise do site.</br>
 
 Como tinha me retornado a url <strong>static/js/index.js</strong>, eu acessei e me retornou o diretório com a regra de negócio da aplicação. </br>
 
