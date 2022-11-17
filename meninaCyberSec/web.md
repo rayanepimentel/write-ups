@@ -55,42 +55,22 @@ Acessei **url/admin/admin.js** e nesse arquivo estava a flag:
 
 Continuação da análise do site.</br>
 
-Como tinha me retornado a url <strong>static/js/index.js</strong>, eu acessei e me retornou o diretório com a regra de negócio da aplicação. </br>
+Como tinha me retornado a url <strong>static/js/index.js</strong>, acessei e retornou o diretório com a regra de negócio da aplicação. </br>
 
 ## Análise
 
-Analisei o código **index.js** e vi que na regra de negócio tinha uma requisição POST **/api/getfacts** </br>
+Analisei o código **index.js**, vi que tinha requisição POST **/api/getfacts** que recebia como paramentro **(fact_type)** e retornava chamando uma const populate, passando o response.</br>
+A populate continha **if else**
 
-Na página do button 2, não aparece o array com as informações. Caindo diretamente no **else**
+> if (facts.length > 0)
+
+Na página do "button 2", não aparece o array com as informações. Caindo diretamente no **else**
 
 ```js
  facts_html = '<div></div><div class="error">Secrets can only be accessed by admin</div>';
 ```
 
-Ou seja, o body tá indo vazio/false.
-
-```js
-const loadfacts = async (fact_type) => {
-    await fetch('/api/getfacts', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ 'type': fact_type })
-    })
-        .then((response) => response.json())
-        .then((res) => {
-            if (!res.hasOwnProperty('facts')){
-                populate([]);
-                return;
-            }
-
-            populate(res.facts);
-        });
-}
-```
-
-O que eu posso tentar é passar como true no body e rodar o scritp no console do navegador.
+Passei o body como true e rodei o scritp no console do navegador:
 
 ```js
 fetch('/api/getfacts', {
