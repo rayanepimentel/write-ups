@@ -18,47 +18,49 @@ Esse desafio tinha um arquivo .txt e ao abri-lo, tinha endereço do site para an
 
 ### Análise
 
-1. Analisei o o page source
-2. Na pagina tinha dois buttons, cliquei em ambos, com o console e network abertos.
+1. Analisei o page source
+2. Na pagina tinha dois buttons, cliquei em ambos com o console e network abertos.
 
-O segundo button me chamou atenção. Ao clicar aparecia a seguinte mensagem na página
+O segundo button me chamou atenção. Ao clicar aparecia a seguinte mensagem na página:
 
 ```bash
 Secrets can only be accessed by admin
 ```
 
-A palavra **admin** poderia me levar para algum diretório. Ou poderia existir uma URL de login</br>
+A palavra **admin** poderia me levar para algum diretório ou poderia existir um diretório de login</br>
 Tentei acessa a URL com o <strong>/admin</strong> e retornou:
 
 ```bash
 403 Forbidden
 ```
 
-Status code 403 de não permitido. Diretório existe, mas eu não tenho permissão. </br>
+Status code **403** de não permitido. Diretório existe, mas eu não tenho permissão. </br>
 
-Utilizando a ferramenta <strong>dirbuster</strong>, me retornou algums diretórios <strong>200</strong>, ou seja diretórios que não precisam de autorização para acessar.</br>
+Utilizando a ferramenta <strong>dirbuster</strong> técnica de bruteforce para encontrar objetos, arquivos e diretórios do site e me retornou algums diretórios com status code <strong>200</strong>, ou seja diretórios que não precisam de autorização para acessar.</br>
 
 ```bash
 200 /admin/admin.js
 200 static/js/index.js
 ```
 
-Acessei url/admin/admin.js e nesse arquivo estava a flag
+Acessei **url/admin/admin.js** e nesse arquivo estava a flag:
 
 > "MCS{3num3r4t10n_F0rfun_4nd_Pr0f1t}"
+
+<hr>
 
 ## Desafio: Nosferatu :triangular_flag_on_post:
 
 <code>Formato da flag: MCS{xxxx_xxxx_xxxx_xxxx_xxxx}</code>
 
-Esse era a continuação.</br>
+Esse era a continuação da análise do site.</br>
 
-Como tinha me retornado a url <strong>static/js/index.js</strong>, eu acessei e me retornou o diretório, com a regra de negócio da aplicação. </br>
+Como tinha me retornado a url <strong>static/js/index.js</strong>, eu acessei e me retornou o diretório com a regra de negócio da aplicação. </br>
 
 ## Análise
 
-Analisei o código index.js e vi que na regra de negócio tinha uma requisição POST **/api/getfacts** </br
->
+Analisei o código **index.js** e vi que na regra de negócio tinha uma requisição POST **/api/getfacts** </br>
+
 Na página do button 2, não aparece o array com as informações. Caindo diretamente no **else**
 
 ```js
@@ -88,7 +90,7 @@ const loadfacts = async (fact_type) => {
 }
 ```
 
-O que eu preciso fazer é passar como true e rodar o scritp no console do navegador.
+O que eu posso tentar é passar como true no body e rodar o scritp no console do navegador.
 
 ```js
 fetch('/api/getfacts', {
