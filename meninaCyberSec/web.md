@@ -4,7 +4,12 @@
 
 CTF (Capture The Flag) realizado entre os dias 12 e 15 de Novembro, no servidor Menina de CyberSec.
 
-# WEB
+# Ferramentas
+
+- Sistema operacional kali
+- gobuster
+
+# Desafio WEB
 
 ![](/meninaCyberSec/pics/web2.png)
 
@@ -21,7 +26,7 @@ Esse desafio tinha um arquivo .txt e ao abri-lo, tinha endereço do site para an
 1. Analisei o page source
 2. Na pagina tinha dois buttons, cliquei em ambos com o console e network abertos.
 
-O segundo button me chamou atenção. Ao clicar aparecia a seguinte mensagem na página:
+O segundo button me chamou atenção. Ao clicar exibia a seguinte mensagem na página:
 
 ```bash
 Secrets can only be accessed by admin
@@ -36,11 +41,12 @@ Tentei acessa a URL com o <strong>/admin</strong> e retornou:
 
 Status code **403** de não permitido. Diretório existe, mas eu não tenho permissão. </br>
 
-Utilizando a ferramenta <strong>dirbuster</strong> técnica de bruteforce para encontrar objetos, arquivos e diretórios do site, me retornou algums diretórios com status code <strong>200</strong>, ou seja diretórios que não precisam de autorização para acessar.</br>
+Utilizando a ferramenta <strong>gobuster</strong> técnica de bruteforce para encontrar objetos, arquivos e diretórios do site, me retornou algums diretórios com status code <strong>200</strong>, ou seja diretórios que não precisam de autorização para acessar.</br>
 
 ```bash
 200 /admin/admin.js
 200 static/js/index.js
+...
 ```
 
 Acessei **url/admin/admin.js** e nesse arquivo estava a flag:
